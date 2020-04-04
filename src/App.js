@@ -73,7 +73,11 @@ class App extends Component {
     //   })
     // }
   };
-
+  copyCodeToClipboard = () => {
+    const el = this.textArea;
+    el.select();
+    document.execCommand("copy");
+  };
   render() {
     return (
       <div className="app">
@@ -131,7 +135,19 @@ class App extends Component {
               borderRadius: "12px",
             }}
           >
-            <p>{this.state.documents}</p>
+            <Button
+              onClick={() => this.copyCodeToClipboard()}
+              variant="contained"
+              color="primary"
+            >
+              Copy to Clipboard
+            </Button>
+
+            <textarea
+              style={{ width: "100%", minHeight: "50vh", marginTop: "1rem" }}
+              ref={(textarea) => (this.textArea = textarea)}
+              value={this.state.documents}
+            />
           </div>
         )}{" "}
       </div>
