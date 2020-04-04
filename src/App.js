@@ -3,7 +3,7 @@ import "./App.css";
 import Tesseract from "tesseract.js";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
-
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -143,8 +143,8 @@ class App extends Component {
               Copy to Clipboard
             </Button>
 
-            <textarea
-              style={{ width: "100%", minHeight: "50vh", marginTop: "1rem" }}
+            <TextareaAutosize
+              style={{ width: "100%", marginTop: "1rem" }}
               ref={(textarea) => (this.textArea = textarea)}
               value={this.state.documents}
             />
